@@ -1,6 +1,6 @@
-# CartoqueClient
+# Cartoquist
 
-cartoque_client is a client for the [Cartoque CMDB project](http://cartoque.org/).
+cartoquist is a client for the [Cartoque CMDB project](http://cartoque.org/).
 
 Nothing too fancy for now, it's just base classes to interact with the standard
 API. There are great chances it becomes a command-line tool in a near future.
@@ -13,7 +13,7 @@ recommended you directly use the version installed with the application.
 
 In other cases, you can either add this line to your own application's Gemfile:
 
-    gem 'cartoque_client'
+    gem 'cartoquist'
 
 And then execute:
 
@@ -21,7 +21,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install cartoque_client
+    $ gem install cartoquist
 
 ## Usage
 
