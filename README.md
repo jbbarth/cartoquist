@@ -27,6 +27,17 @@ Or install it yourself as:
 
 TODO: Write usage instructions here
 
+## Running tests
+
+Tests are done with rspec:
+
+    $ rspec spec
+
+You can optionnally use guard if you want to develop for this gem, it launches
+tests automatically on file changes:
+
+    $ guard
+
 ## Contributing
 
 1. Fork it
