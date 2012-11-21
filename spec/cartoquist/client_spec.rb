@@ -36,4 +36,46 @@ describe Cartoquist::Client do
       api.token.should == "token-from-env"
     end
   end
+
+
+  if ENV["CARTOQUIST_URL"] && ENV["CARTOQUIST_TOKEN"]
+    let(:api) { Cartoquist::Client.new }
+
+    describe "#get_applications" do
+      it 'get some applications' do
+        api.get_applications.should be_a Array
+      end
+    end
+
+    describe "#get_databases" do
+      it 'get some databases' do
+        api.get_databases.should be_a Array
+      end
+    end
+
+    describe "#get_operating_systems" do
+      it 'get some operating systems' do
+        api.get_operating_systems.should be_a Array
+      end
+    end
+
+    describe "#get_servers" do
+      it 'get some servers' do
+        api.get_servers.should be_a Array
+      end
+    end
+
+    describe "#get_tomcats" do
+      it 'get some tomcats' do
+        api.get_tomcats.should be_a Array
+      end
+    end
+  else
+    $stderr.puts
+    $stderr.puts "*"*80
+    $stderr.puts "WARNING: No CARTOQUIST_URL or CARTOQUIST_TOKEN defined in environment variables"
+    $stderr.puts "         Tests won't be run against a *real* Cartoque server, only fixtures!"
+    $stderr.puts "*"*80
+    $stderr.puts
+  end
 end
