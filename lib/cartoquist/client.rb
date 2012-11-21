@@ -1,9 +1,20 @@
 require "logger"
 require "faraday"
 require "faraday_middleware"
+require "cartoquist/api/applications"
+require "cartoquist/api/databases"
+require "cartoquist/api/operating_systems"
+require "cartoquist/api/servers"
+require "cartoquist/api/tomcats"
 
 module Cartoquist
   class Client
+    include Cartoquist::API::Applications
+    include Cartoquist::API::Databases
+    include Cartoquist::API::OperatingSystems
+    include Cartoquist::API::Servers
+    include Cartoquist::API::Tomcats
+
     attr_reader :url, :token
 
     def initialize(url = nil, token = nil)
@@ -13,26 +24,6 @@ module Cartoquist
       raise ArgumentError, "Cartoque api token should be passed as second parameter or through a CARTOQUIST_TOKEN environment variable" if token.nil?
       @url = url
       @token = token
-    end
-
-    def get_applications
-      get(:applications)
-    end
-
-    def get_databases
-      get(:databases)
-    end
- 
-    def get_operating_systems
-      get(:operating_systems)
-    end
-
-    def get_servers
-      get(:servers)
-    end
-
-    def get_tomcats
-      get(:tomcats)
     end
 
   private
